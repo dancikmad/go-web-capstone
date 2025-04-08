@@ -1,0 +1,13 @@
+# Dockerfile.api 
+FROM golang:1.24
+
+WORKDIR /app 
+COPY . . 
+
+RUN go build -o api ./server/requests.go
+
+EXPOSE 4002 
+
+CMD ["./api"]
+
+

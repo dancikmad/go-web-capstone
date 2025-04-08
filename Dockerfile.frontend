@@ -1,0 +1,13 @@
+# Dockerfile.frontend 
+FROM golang:1.24
+
+WORKDIR /app 
+COPY . . 
+
+RUN go build -o frontend . 
+
+EXPOSE 4001
+
+CMD ["./frontend"]
+
+
