@@ -20,7 +20,7 @@ func handleHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleMenu(w http.ResponseWriter, r *http.Request) {
-	resp, err := http.Get("http://localhost:4002/data")
+	resp, err := http.Get("http://api:4002/data")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -56,7 +56,7 @@ func handleReviewForm(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleReviewSubmission(w http.ResponseWriter, r *http.Request) {
-	url := "http://localhost:4002/addReview"
+	url := "http://api:4002/addReview"
 	contentType := "application/json"
 	if err := r.ParseForm(); err != nil {
 		http.Error(w, "Unable to parse form", http.StatusBadRequest)
@@ -86,7 +86,7 @@ func handleReviewSubmission(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleReviews(w http.ResponseWriter, r *http.Request) {
-	resp, err := http.Get("http://localhost:4002/reviews")
+	resp, err := http.Get("http://api:4002/reviews")
 	if err != nil {
 		log.Fatal(err)
 	}
